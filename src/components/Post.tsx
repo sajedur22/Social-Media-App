@@ -58,8 +58,8 @@ const Post = async() => {
                     {/*Tap*/}
                 <div className="flex items-center justify-between gap-2">
                     <div className="flex items-center gap-2 flex-wrap">
-                        <h1 className="text-md font-bold">Lamda Dev</h1>
-                        <span className="text-textGray">@lamaWeb</span>
+                        <h1 className="text-md font-bold">shakil Dev</h1>
+                        <span className="text-textGray">@shakilDev</span>
                         <span className="text-textGray">1h</span>
                     </div>
                     <PostInfo/>
