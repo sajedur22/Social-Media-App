@@ -4,6 +4,7 @@ import PostInfo from "./PostInfo";
 import PostInteraction from "./PostInteraction";
 import { imagekit } from "@/utils";
 import Video from "./Video";
+import Link from "next/link";
 
 interface FileDetailsResponse{
   width:number;
@@ -14,7 +15,7 @@ interface FileDetailsResponse{
   customMetaData?:{sensitive:boolean};
 }
 
-const Post = async() => {
+const Post = async({type}:{type?:"status"|"comment"}) => {
   
   // FETCH POST MEDIA
 
@@ -48,24 +49,34 @@ const Post = async() => {
                 <span>Repost</span>
             </div>
             {/*post content*/}
-            <div className="flex gap-4">
+            {/*<div className={`flex gap-4`}>*/}
+            <div className={`flex gap-4 ${type==="status" && "flex-col"}`}>
                 {/*avater*/}
-                <div className="relative w-10 h-10 rounded-full overflow-hidden">
+                <div className={`${type==="status" && "hidden"} 
+                relative w-10 h-10 rounded-full overflow-hidden`}>
                     <Image path="general/avatar.png" alt="" w={100} h={100} tr={true} className=""/>
             </div>
             {/*content*/}
             <div className="flex-1 flex flex-col gap-2">
-                    {/*Tap*/}
-                <div className="flex items-center justify-between gap-2">
-                    <div className="flex items-center gap-2 flex-wrap">
+              {/*Tap*/}
+              <div className="w-full flex justify-between">
+                    <Link href={'/test'} className="flex gap-4">
+                    <div className={`${type!=="status" && "hidden"} 
+                relative w-10 h-10 rounded-full overflow-hidden`}>
+                    <Image path="general/avatar.png" alt="" w={100} h={100} tr={true} className=""/>
+            </div>
+                    
+                
+                    <div className={`flex items-center gap-2 flex-wrap ${type==="status" && "flex-col gap-0 !items-start"}`}>
                         <h1 className="text-md font-bold">shakil Dev</h1>
-                        <span className="text-textGray">@shakilDev</span>
-                        <span className="text-textGray">1h</span>
+                        <span className={`text-textGray ${type==="status" && "text-sm"}`}>@shakilDev</span>
+                        {type !=="status" && (<span className="text-textGray">1h</span>)}
                     </div>
+                    </Link>
                     <PostInfo/>
                 </div>
                   {/*Text Media*/}
-                  <p className="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta ut perspiciatis ipsum quasi unde, nulla numquam cum. Vitae fuga obcaecati ipsam nostrum consequuntur, ratione deserunt sit corporis, a, voluptates modi?</p>
+                  <p className={`${type ==="status" && "text-lg"}`}>Lorem ipsum dolor sit amet, c consequuntur, ratione deserunt sit corporis, a, voluptates modi?</p>
                   {/*<Image path="general/post.jpeg" alt="" w={500} h={500} className=""/>*/}
                  {fileDetails && fileDetails.fileType==="image"?( 
             <Image

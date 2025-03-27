@@ -68,7 +68,7 @@ const LeftBar = () => {
   return (
     <div className="h-screen sticky top-0 flex flex-col justify-between pt-2 pb-8">
       {/* LOGO MENU BUTTON */}
-      <div className="flex flex-col gap-2 text-lg items-center xxl:items-start">
+      <div className="flex flex-col gap-4 text-lg items-center xxl:items-start">
         {/* LOGO */}
         <Link href="/" className="p-2 rounded-full hover:bg-[#181818] ">
           <Image path="icons/logo.svg" alt="logo" w={24} h={24} className=""/>
@@ -93,18 +93,20 @@ const LeftBar = () => {
           ))}
         </div>
         {/* BUTTON */}
+      
         <Link
-          href="/compose/post"
+          href="/poste"
           className="bg-white text-black rounded-full w-12 h-12 flex items-center justify-center xxl:hidden"
         >
-          <Image path="icons/post.svg" alt="new post" w={24} h={24} className="" />
+          <Image path="icons/post.svg" alt="new post" w={24} h={24} className=""/>
         </Link>
         <Link
-          href="/compose/post"
+          href="/poste"
           className="hidden xxl:block bg-white text-black rounded-full font-bold py-2 px-20"
         >
-          Post
+         post
         </Link>
+        
       </div>
       {/* USER */}
       <div className="flex items-center justify-between">
@@ -113,8 +115,8 @@ const LeftBar = () => {
             <Image path="/general/avatar.png" alt="lama dev" w={100} h={100} tr={true} className=""/>
           </div>
           <div className="hidden xxl:flex flex-col">
-            <span className="font-bold">shakil Dev</span>
-            <span className="text-sm text-textGray">@shakilDev</span>
+            <span className="font-bold">Lama Dev</span>
+            <span className="text-sm text-textGray">@lamaWebDev</span>
           </div>
         </div>
         <div className="hidden xxl:block cursor-pointer font-bold">...</div>
